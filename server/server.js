@@ -3,14 +3,16 @@ const express = require('express');
 const mongoose = require('mongoose');
 const path = require('path');
 
-// require routers
-const postRouter = require('./routers/postRouter');
-const userRouter = require('./routers/userRouter');
-
 // express instance
 const app = express();
 
 const PORT = 3000;
+
+
+// require routers
+const postRouter = require('./routers/postRouter');
+const userRouter = require('./routers/userRouter');
+
 
 
 //Mongoose DB connection
@@ -54,11 +56,11 @@ app.use('*', (req, res) => {
 // Global Error Handler
 app.use((err, req, res, next) => {
   console.error(err.stack);
-  return res.status(500).send('Internal Server Error!')
+  return res.status(500).send('Internal Server Error!');
 });
 
 
 // express listen
 app.listen(PORT, () => {
-    console.log(`Server listening on port: ${PORT}`); 
+    console.log(`Server listening on port: ${PORT}`);
 });

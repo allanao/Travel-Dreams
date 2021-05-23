@@ -1,6 +1,7 @@
 const path = require('path');
 
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const devMode = process.env.NODE_ENV !== 'production';
 
@@ -11,7 +12,14 @@ module.exports = {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'build'),
   },
-  plugins: [new MiniCssExtractPlugin()],
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: './build/index.html',
+    }),
+    new MiniCssExtractPlugin({
+      filename: './component/stylesheets/style.css',
+    }),
+  ],
   devServer: {
     publicPath: '/build/',
     proxy: {
@@ -33,13 +41,13 @@ module.exports = {
       {
         test: /\.s[ac]ss$/i,
         use: [
-          devMode ? "style-loader" : { 
-          loader: MiniCssExtractPlugin.loader,
-          options: { publicPath: '/build/main.css' },
-        },
-          "css-loader",
-          "sass-loader"],
+          devMode ? 'style-loader' : {
+            loader: MiniCssExtractPlugin.loader,
+            options: { publicPath: '/build/main.css' },
+          },
+          'css-loader',
+          'sass-loader'],
       },
     ],
-  }
+  },
 };

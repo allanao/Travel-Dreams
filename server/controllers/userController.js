@@ -7,9 +7,8 @@ const userController = {};
 
 userController.create = (req, res, next) => {
   const bodyData = req.body;
-  console.log(bodyData)
-  User  
-    .create({ username : bodyData.username, password: bodyData.password })
+  console.log(bodyData);
+  User.create({ username : bodyData.username, password: bodyData.password })
     .then((data) => {
       console.log('userController.create successfully returned after inserting a doc into the collection.');
       return next()
