@@ -1,5 +1,5 @@
 import React from 'react';
-import {Map, GoogleApiWrapper, Marker } from 'google-maps-react';
+import { Map, GoogleApiWrapper, Marker } from 'google-maps-react';
 import Geocode from "react-geocode";
 Geocode.setApiKey("AIzaSyA4SgOj9dUgrVleGtXo_0jOxQfGd-thrlE")
 
