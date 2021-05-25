@@ -17,8 +17,7 @@ class MapContainer extends React.Component {
             mapsLatLng: [37.4238253802915, -122.0829009197085]
         };
     }
-       
-        
+            
     
     componentDidMount() {
         Geocode.fromAddress(this.state.mapsinit)

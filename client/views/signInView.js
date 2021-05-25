@@ -39,9 +39,9 @@ class SignInView extends React.Component {
     console.log('props', this.props);
     
     return (
-      <div>
+      <div id="signin">
         {/*insert logo/image here  */}
-        <h1>Dreamcatcher</h1>
+        <h1>Travel Dreams</h1>
         <Auth type="Sign In" authFunc={this.signInFunc}
         //if Auth type = signIn
           //if name exists in db 
